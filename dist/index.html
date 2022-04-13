@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Carousel</title>
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <button class="carouselButton left">
+        <svg class="leftArrow"></svg>
+      </button>
+      <div class="carouselMain">
+        <div class="carouselContainer">
+          <div class="slide currentSlide">
+            <img
+              src="../src/images/Carousel3.JPG"
+              class="carouselImage carousel1"
+            />
+          </div>
+          <div class="slide">
+            <img src="../src/images/Carousel1.JPG" class="carouselImage" />
+          </div>
+          <div class="slide">
+            <img src="../src/images/Carousel4.JPG" class="carouselImage" />
+          </div>
+          <div class="slide">
+            <img src="../src/images/Carousel2.JPG" class="carouselImage" />
+          </div>
+          <div class="slide">
+            <img src="../src/images/Carousel5.JPG" class="carouselImage" />
+          </div>
+          <div class="slide">
+            <img src="../src/images/Carousel6.JPG" class="carouselImage" />
+          </div>
+        </div>
+      </div>
+      <div class="dots">
+        <button class="dot"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+        <button class="dot"></button>
+      </div>
+
+      <button class="carouselButton right">
+        <svg class="rightArrow"></svg>
+      </button>
+    </div>
+  </body>
+</html>
