@@ -6,7 +6,6 @@ const dots = Array.from(dotsNav.children);
 dots[0].classList.add('currentSlide');
 // const dots = document.querySelectorAll('.dot');
 let carouselContainer = document.querySelector('.carouselContainer');
-
 //arrange the slides in a row next to each other
 let slideWidth = slides[0].getBoundingClientRect().width;
 const setSlidePosition = (slide, i) => {
@@ -14,6 +13,14 @@ const setSlidePosition = (slide, i) => {
 };
 slides.forEach(setSlidePosition);
 
+window.addEventListener('keydown', e => {
+  const key = e.key;
+  if (key === 'ArrowRight') {
+    rightArrowClick();
+  } else if (key === 'ArrowLeft') {
+    leftArrowClick();
+  }
+});
 let moveToSlide = targetIndex => {
   let currentSlide = document.querySelector('.currentSlide');
   currentSlide.classList.remove('currentSlide');
@@ -37,10 +44,7 @@ const changeDotColor = targetIndex => {
   previousDot.classList.remove('currentSlide');
   dots[targetIndex].classList.add('currentSlide');
 };
-
-const rightArrow = document.querySelector('.rightArrow');
-const leftArrow = document.querySelector('.leftArrow');
-rightArrow.addEventListener('click', e => {
+const rightArrowClick = () => {
   let currentSlide = document.querySelector('.currentSlide');
   let currentIndex = slides.findIndex(slide => slide === currentSlide);
   if (currentIndex === 5) {
@@ -50,9 +54,9 @@ rightArrow.addEventListener('click', e => {
   }
   //now that the current index has been updated, pass it into the fn as the target
   moveToSlide(currentIndex);
-});
+};
 
-leftArrow.addEventListener('click', e => {
+const leftArrowClick = () => {
   let currentSlide = document.querySelector('.currentSlide');
   let currentIndex = slides.findIndex(slide => slide === currentSlide);
   if (currentIndex === 0) {
@@ -62,5 +66,10 @@ leftArrow.addEventListener('click', e => {
   }
   //now that the current index has been updated, pass it into the fn as the target
   moveToSlide(currentIndex);
-});
+};
+const rightArrow = document.querySelector('.rightArrow');
+const leftArrow = document.querySelector('.leftArrow');
+rightArrow.addEventListener('click', rightArrowClick);
+
+leftArrow.addEventListener('click', leftArrowClick);
 dots.forEach(dot => dot.addEventListener('click', chooseSlideWithDots));
